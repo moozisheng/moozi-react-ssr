@@ -1,18 +1,15 @@
 module.exports = {
     module: {
         rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-react', '@babel/preset-env']
-                        }
-                    }
-                ]
-            }
+            { 
+                test:/\.js$/,
+                // 才能支持import 支持jsx
+                loader:'babel-loader',
+                exclude:/node_modules/,
+                options:{
+                  presets:['@babel/preset-react', ['@babel/preset-env']]
+                }
+            },
         ]
     }
 }

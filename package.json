@@ -4,16 +4,35 @@
   "description": "react ssr",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "concurrently \"npm run dev:client\" \"npm run dev:server\" \"npm run dev:start\" \"nodemon mock.js\"",
+    "dev:client": "webpack --config webpack.client.config.js --watch",
+    "dev:server": "webpack --config webpack.server.config.js --watch",
+    "dev:start": "nodemon --watch build --exec node \"./build/bundle.js\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/moozisheng/moozi-react-ssr.git"
   },
-  "author": "",
+  "author": "moozi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/moozisheng/moozi-react-ssr/issues"
   },
-  "homepage": "https://github.com/moozisheng/moozi-react-ssr#readme"
+  "homepage": "https://github.com/moozisheng/moozi-react-ssr#readme",
+  "dependencies": {
+    "babel-loader": "^8.2.2",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^4.5.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "webpack": "^5.12.2",
+    "webpack-cli": "^4.3.1",
+    "webpack-node-externals": "^2.5.2"
+  }
 }
