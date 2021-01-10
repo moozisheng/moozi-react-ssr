@@ -6,8 +6,7 @@ import App from '../App.js'
 const app = new express();
 
 app.get('/', (req, res) => {
-    const  Page = <App title="React SSR"/>
-    const content = renderToString(Page);
+    const content = renderToString(App);
     res.send(
         `
             <html>
