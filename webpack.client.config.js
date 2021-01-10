@@ -12,7 +12,7 @@ const clientConfig = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './publish')
     },
-  
+    
 }
 
 module.exports = webpackMerge(baseConfig, clientConfig);

@@ -1,14 +1,21 @@
 import { renderToString } from 'react-dom/server';
 import React from 'react';
 import express from 'express';
-import App from '../App.js'
+import { StaticRouter } from 'react-router-dom';
+import App from '../App.js';
 
 const app = express();
 app.use(express.static('publish'))
 
 
-app.get('/', (req, res) => {
-    const content = renderToString(App);
+// 监听所有路由
+app.get('*', (req, res) => {
+
+    const content = renderToString(
+        <StaticRouter location={ req.url }>
+            {App}
+        </StaticRouter>
+    );
     res.send(
         `
             <html>

@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
+import { Route } from 'react-router-dom'
+import Home from './pages/Home'
+import About from './pages/About'
 
-function App(props) {
-    const [count, setCount] = useState(1);
-
-    return <div>
-        <h1>hello {props.title}</h1>
-        <div>{count}</div>
-        <button onClick={() => setCount(count + 1)}>累加</button>
+export default (
+    <div>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/about" exact component={About}></Route>
     </div>
-        
-}
-
-export default <App title="React SSR" />;
+)
