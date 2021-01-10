@@ -3,7 +3,9 @@ import React from 'react';
 import express from 'express';
 import App from '../App.js'
 
-const app = new express();
+const app = express();
+app.use(express.static('publish'))
+
 
 app.get('/', (req, res) => {
     const content = renderToString(App);
@@ -16,6 +18,7 @@ app.get('/', (req, res) => {
                 </head>
                 <body>
                     <div id="root">${content}</div>
+                    <script src="/bundle.js"></script>
                 </body>
             </html>
         `

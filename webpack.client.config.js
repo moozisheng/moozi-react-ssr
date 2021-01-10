@@ -12,13 +12,7 @@ const clientConfig = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './publish')
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.spa.html',
-            template: 'src/index.spa.html',
-            inject: true
-        })
-    ]
+  
 }
 
 module.exports = webpackMerge(baseConfig, clientConfig);
