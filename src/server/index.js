@@ -13,6 +13,7 @@ app.use(express.static('publish'))
 // 监听所有路由
 app.get('*', (req, res) => {
 
+    // 使用 Provider 向组件注入 store
     const content = renderToString(
         <Provider store={store}>
             <StaticRouter location={ req.url }>

@@ -1,7 +1,9 @@
 import axios from 'axios'
 
+// action type
 const GET_LIST = 'INDEX/GET_LIST';
 
+// actionCreator
 const changeList = list => ({
     type: GET_LIST,
     list
